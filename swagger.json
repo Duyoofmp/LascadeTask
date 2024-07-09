@@ -1,0 +1,118 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "version": "1.0.0",
+      "title": "My API",
+      "description": "API Documentation"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+      {
+          "name": "Auth",
+          "description": "User authentication and registration"
+      },
+      {
+          "name": "CSV",
+          "description": "CSV file upload and processing"
+      }
+  ],
+  "schemes": ["http"],
+  "paths": {
+      "/api/auth/register": {
+          "post": {
+              "tags": ["Auth"],
+              "summary": "Register a new user",
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "required": true,
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "name": { "type": "string" },
+                              "email": { "type": "string" },
+                              "password": { "type": "string" }
+                          }
+                      }
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "description": "User registered successfully"
+                  },
+                  "400": {
+                      "description": "Invalid input or user already exists"
+                  }
+              }
+          }
+      },
+      "/api/auth/login": {
+          "post": {
+              "tags": ["Auth"],
+              "summary": "Login a user",
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "required": true,
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "email": { "type": "hani@gmail.com" },
+                              "password": { "type": "hani" }
+                          }
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "User logged in successfully"
+                  },
+                  "401": {
+                      "description": "Invalid email or password"
+                  }
+              }
+          }
+      },
+      "/api/csv/upload": {
+          "post": {
+              "tags": ["CSV"],
+              "summary": "Upload a CSV file",
+              "parameters": [
+                  {
+                      "name": "file",
+                      "in": "formData",
+                      "required": true,
+                      "type": "file"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "File uploaded successfully"
+                  },
+                  "400": {
+                      "description": "No file uploaded"
+                  },
+                  "401": {
+                      "description": "Not authorized"
+                  }
+              },
+              "security": [
+                  {
+                      "Bearer": []
+                  }
+              ]
+          }
+      }
+  },
+  "securityDefinitions": {
+      "Bearer": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in": "header",
+          "description": "JWT token for authorization"
+      }
+  }
+}
