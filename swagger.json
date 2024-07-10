@@ -5,7 +5,7 @@
       "title": "My API",
       "description": "API Documentation"
   },
-  "host": "localhost:3000",
+  "host": "lascadetask-production.up.railway.app",
   "basePath": "/",
   "tags": [
       {
@@ -17,7 +17,7 @@
           "description": "CSV file upload and processing"
       }
   ],
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
       "/api/auth/register": {
           "post": {
