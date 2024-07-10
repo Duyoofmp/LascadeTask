@@ -13,7 +13,7 @@ Ensure that you have the following installed on your local system:
 
 ## Setup Instructions
 
-###1. Clone the Repository
+### 1. Clone the Repository
 
 First, clone the repository to your local system:
 
@@ -22,12 +22,12 @@ git clone https://github.com/Duyoofmp/LascadeTask.git
 cd LascadeTask
 ```
 
-###2. Install Dependencies
+### 2. Install Dependencies
 Install the required Node.js dependencies:
 ```bash
 npm install
 ```
-###3.Configure Environment Variables
+### 3.Configure Environment Variables
 Create a .env file in the root directory with the following content:
 ```bash
 PORT=3000
@@ -36,12 +36,12 @@ JWT_SECRET=qwertyuiop
 REDIS_URL=redis://localhost:6379
 ```
 
-###4. Start Redis Server
+### 4. Start Redis Server
 Ensure that Redis is running on your local system. If you are using WSL (Windows Subsystem for Linux), you can start Redis with the following command:
 ```bash
 wsl redis-server
 ```
-###5. Run the Application
+### 5. Run the Application
 Start the Node.js application:
 ```bash
 node app.js
@@ -49,7 +49,8 @@ node app.js
 The application should now be running on
 `http://localhost:3000`
 
-###6. Swagger Documentation
+### 6. Swagger Documentation
+
 To view the API documentation, navigate to
 ```http://localhost:3000/api-docs```
 
