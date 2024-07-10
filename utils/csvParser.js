@@ -1,6 +1,6 @@
 const csv = require('csv-parser');
 const { Readable } = require('stream');
-const CsvData = require('../models/csvData');
+const CsvData = require('../models/Csv');
 const redisClient = require('./redisClient');
 
 const parseCSV = async (buffer) => {
